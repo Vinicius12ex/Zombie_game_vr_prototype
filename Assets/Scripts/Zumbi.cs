@@ -5,17 +5,21 @@ using UnityEngine;
 public class Zumbi : MonoBehaviour {
 
     Animator anim;
+    Rigidbody rb;
+
+    public float velocidade = 0.35f;
 
 	// Use this for initialization
 	void Start ()
     {
         anim = GetComponent<Animator>();
-	}
+        rb = GetComponent<Rigidbody>();
+    }
 	
 	// Update is called once per frame
 	void Update ()
     {
-		
+        rb.velocity = transform.forward * velocidade;
 	}
 
     void OnTriggerEnter(Collider other)
