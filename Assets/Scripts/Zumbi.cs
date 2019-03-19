@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class Zumbi : MonoBehaviour {
 
+    Animator anim;
+
 	// Use this for initialization
 	void Start ()
     {
-		
+        anim = GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
@@ -29,7 +31,9 @@ public class Zumbi : MonoBehaviour {
             Destroy(other.gameObject);
 
             // Destrói o zumbi que foi atingido
-            Destroy(gameObject);
+            // Destroy(gameObject);
+
+            anim.SetTrigger("Morrer");
         }
     }
 }
